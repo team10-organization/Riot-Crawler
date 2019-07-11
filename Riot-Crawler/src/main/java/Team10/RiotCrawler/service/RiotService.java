@@ -11,6 +11,10 @@ public class RiotService {
     @Autowired
     LeaguePositionRepository leaguePositionRepository;
 
+    public String getEncryptedSummonerId(String summonerName) {
+        return SummonerInfo.getEncryptedId();
+    }
+
     public LeaguePosition getLeaguePositionBySummonerName(String encryptedSummonerId) {
         return leaguePositionRepository.findLeaguePosition(encryptedSummonerId);
     }

@@ -16,7 +16,7 @@ public class RiotService {
     LeaguePositionRepository leaguePositionRepository;
 
     public String getEncryptedSummonerId(String summonerName) {
-        return SummonerInfo.getEncryptedId();
+        return riotApiClient.requestEncryptedId(summonerName).getId();
     }
 
     public LeaguePosition getLeaguePositionBySummonerName(String encryptedSummonerId) {

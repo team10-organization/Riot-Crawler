@@ -1,6 +1,7 @@
 package Team10.RiotCrawler.api;
 
 import Team10.RiotCrawler.domain.LeaguePosition;
+import Team10.RiotCrawler.domain.SummonerInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,8 @@ public class RiotApiClient {
     @Autowired
     RestTemplate restTemplate;
 
-    public LeaguePosition requestEncryptedId(String summonerName){
-        return restTemplate.exchange(OpenRiotUrl_getEncryptedId, HttpMethod.GET, null, LeaguePosition.class, summonerName, api_key).getBody();
+    public SummonerInfo requestEncryptedId(String summonerName){
+        return restTemplate.exchange(OpenRiotUrl_getEncryptedId, HttpMethod.GET, null, SummonerInfo.class, summonerName, api_key).getBody();
     }
 
     public LeaguePosition requestSummonerInfo(String encryptedId){

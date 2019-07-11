@@ -14,7 +14,7 @@ public class RiotController
     @GetMapping("/riot-crawler/leagueposition/{summonername}")
     public LeaguePosition getLeaguePosition(String summonerName)
     {
-        return riotservice.getLeaguePositionBySummonerName(summonerName);
+        return riotService.getLeaguePositionBySummonerName(summonerName);
     }
 
 }

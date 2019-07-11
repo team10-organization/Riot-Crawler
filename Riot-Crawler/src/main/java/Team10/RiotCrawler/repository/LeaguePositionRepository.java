@@ -33,7 +33,7 @@ public class LeaguePositionRepository
             temp = mongoTemplate.findOne(Query.query(Criteria.where("summonerId").is(leaguePosition.getSummonerId())), LeaguePosition.class);
             temp = leaguePosition;
             mongoTemplate.save(temp);
-            
+
         }
         else
         {

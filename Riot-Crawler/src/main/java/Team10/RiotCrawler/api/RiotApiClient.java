@@ -1,5 +1,6 @@
 package Team10.RiotCrawler.api;
 
+import Team10.RiotCrawler.domain.LeaguePosition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;

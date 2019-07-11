@@ -11,17 +11,10 @@ public class RiotController
     @Autowired
     RiotService riotService;
 
-    @GetMapping("/riot-crawler/encryptedid/{summonername}")
-    public String getEncryptedId(String summonername)
+    @GetMapping("/riot-crawler/leagueposition/{summonername}")
+    public LeaguePosition getLeaguePosition(String summonerName)
     {
-        return riotservice.get(summonername);
-    }
-
-
-    @GetMapping("/riot-crawler/leagueposition/{encryptedid}")
-    public LeaguePosition getLeaguePosition(String encryptedid)
-    {
-        return riotservice.getleaguepositionbysummonername(encryptedid);
+        return riotservice.getleaguepositionbysummonername(summonerName);
     }
 
 }

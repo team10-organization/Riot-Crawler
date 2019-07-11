@@ -15,7 +15,7 @@ public class LeaguePositionRepository
     @Autowired
     MongoTemplate mongoTemplate;
 
-    public void findLeaguePosition(String summonerId)
+    public LeaguePosition findLeaguePosition(String summonerId)
     {
         Query query = Query.query(Criteria.where("summonerId").is(summonerId));
         return mongoTemplate.findOne(query, LeaguePosition.class);
@@ -24,6 +24,9 @@ public class LeaguePositionRepository
     public void insertLeaguePosition(LeaguePosition leaguePosition)
     {
         if(findLeaguePosition(leaguePosition.getSummonerId()))
+            ;
+
+        mongoTemplate.insert(leaguePosition);
     }
 
 }

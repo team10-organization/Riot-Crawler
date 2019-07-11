@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
 
@@ -23,10 +24,20 @@ public class LeaguePositionRepository
 
     public void insertLeaguePosition(LeaguePosition leaguePosition)
     {
-        if(findLeaguePosition(leaguePosition.getSummonerId()))
-            ;
+        if(findLeaguePosition(leaguePosition.getSummonerId()) != null)
+        {
+            /*Query query = Query.query(Criteria.where("summonerId").is(leaguePosition.getSummonerId()));
 
-        mongoTemplate.insert(leaguePosition);
+            mongoTemplate.update();*/
+            LeaguePosition temp = new LeaguePosition();
+            temp = mongoTemplate.findOne(Query.query(Criteria.where("summonerId").is(leaguePosition.getSummonerId())), LeaguePosition.class);
+            temp = leaguePosition;
+            mongoTemplate.save(temp);
+        }
+        else
+        {
+            mongoTemplate.insert(leaguePosition);
+        }
     }
 
 }

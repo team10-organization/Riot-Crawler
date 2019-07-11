@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class SummonerInfo {
-    private String Id;
+    private String id;
 }

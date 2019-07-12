@@ -7,6 +7,8 @@ import Team10.RiotCrawler.repository.LeaguePositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @Service
 public class RiotService {
     @Autowired
@@ -19,10 +21,8 @@ public class RiotService {
         return riotApiClient.requestEncryptedId(summonerName).getId();
     }
 
-    public LeaguePosition getLeaguePositionBySummonerName(String summonerName) {
-
+    public Set<LeaguePosition> getLeaguePositionBySummonerName(String summonerName) {
         String encryptedSummonerId = getEncryptedSummonerId(summonerName);
         return riotApiClient.requestSummonerInfo(encryptedSummonerId);
-        //return leaguePositionRepository.findLeaguePosition(encryptedSummonerId);
     }
 }

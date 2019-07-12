@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
+import java.util.Set;
 
 
 @Repository
@@ -22,13 +23,14 @@ public class LeaguePositionRepository
         return mongoTemplate.findOne(query, LeaguePosition.class);
     }
 
-    public void insertLeaguePosition(LeaguePosition leaguePosition)
+    public void insertLeaguePosition(Set<LeaguePosition> leaguePositionSet)
     {
+        /*
         if(findLeaguePosition(leaguePosition.getSummonerId()) != null)
         {
             /*Query query = Query.query(Criteria.where("summonerId").is(leaguePosition.getSummonerId()));
 
-            mongoTemplate.update();*/
+            mongoTemplate.update();
             LeaguePosition temp = new LeaguePosition();
             temp = mongoTemplate.findOne(Query.query(Criteria.where("summonerId").is(leaguePosition.getSummonerId())), LeaguePosition.class);
             temp = leaguePosition;
@@ -38,7 +40,8 @@ public class LeaguePositionRepository
         else
         {
             mongoTemplate.insert(leaguePosition);
-        }
+        }*/
+
     }
 
 }

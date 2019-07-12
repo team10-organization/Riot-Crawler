@@ -41,7 +41,7 @@ public class LeaguePositionRepository
         {
             mongoTemplate.insert(leaguePosition);
         }*/
-
+        mongoTemplate.insert(leaguePositionSet, LeaguePosition.class);
     }
 
 }

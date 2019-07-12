@@ -13,6 +13,9 @@ import org.springframework.stereotype.Repository;
 import java.util.Iterator;
 import java.util.Set;
 
+import java.util.Iterator;
+import java.util.Set;
+
 
 @Repository
 public class LeaguePositionRepository
@@ -30,6 +33,7 @@ public class LeaguePositionRepository
 
     public void insertLeaguePosition(Set<LeaguePosition> leaguePositionSet)
     {
+
         LeaguePosition leaguePosition = new LeaguePosition();
         Iterator<LeaguePosition> iter = leaguePositionSet.iterator();
 
@@ -41,6 +45,23 @@ public class LeaguePositionRepository
         else {
             mongoTemplate.insert(leaguePositionSet, LeaguePosition.class);
         }
+
+
+        LeaguePosition leaguePosition = new LeaguePosition();
+        Iterator<LeaguePosition> iter = leaguePositionSet.iterator();
+
+        mongoTemplate.insert(leaguePositionSet, LeaguePosition.class);
+
+    }
+
+    public void updateLeaguePosition(LeaguePosition leaguePosition) {
+
+
+        mongoTemplate.update(LeaguePosition.class);
+
+
+
+
     }
 
     public void updateLeaguePosition(LeaguePosition leaguePosition) {
@@ -59,7 +80,7 @@ public class LeaguePositionRepository
         update.set("summonerId", leaguePosition.getSummonerId());
         mongoTemplate.updateFirst(query, update, LeaguePosition.class);
 
-       // mongoTemplate.ins
+     
 
 
     }

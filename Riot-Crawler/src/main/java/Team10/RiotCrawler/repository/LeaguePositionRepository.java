@@ -46,22 +46,6 @@ public class LeaguePositionRepository
             mongoTemplate.insert(leaguePositionSet, LeaguePosition.class);
         }
 
-
-        LeaguePosition leaguePosition = new LeaguePosition();
-        Iterator<LeaguePosition> iter = leaguePositionSet.iterator();
-
-        mongoTemplate.insert(leaguePositionSet, LeaguePosition.class);
-
-    }
-
-    public void updateLeaguePosition(LeaguePosition leaguePosition) {
-
-
-        mongoTemplate.update(LeaguePosition.class);
-
-
-
-
     }
 
     public void updateLeaguePosition(LeaguePosition leaguePosition) {

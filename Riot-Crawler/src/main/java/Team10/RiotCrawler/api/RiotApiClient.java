@@ -16,7 +16,6 @@ public class RiotApiClient {
 
     private final String api_key = "RGAPI-460f4483-adcb-4776-8482-953d71310aee";
 
-    private final String api_key = "RGAPI-45e2e1b7-023e-4c4d-a416-099ec58640b6";
 
     private final String OpenRiotUrl_getEncryptedId = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summonerName}?api_key={api_key}";
     private final String OpenRiotUrl_getSummonerInfo = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/{encryptedSummonerId}?api_key={api_key}";

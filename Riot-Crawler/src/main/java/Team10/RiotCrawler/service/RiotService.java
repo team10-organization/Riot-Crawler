@@ -23,6 +23,8 @@ public class RiotService {
 
     public Set<LeaguePosition> getLeaguePositionBySummonerName(String summonerName) {
         String encryptedSummonerId = getEncryptedSummonerId(summonerName);
-        return riotApiClient.requestSummonerInfo(encryptedSummonerId);
+        Set<LeaguePosition> leaguePositionSet = riotApiClient.requestSummonerInfo(encryptedSummonerId);
+        leaguePositionRepository.insertLeaguePosition(leaguePositionSet);
+        return leaguePositionSet;
     }
 }

@@ -2,9 +2,11 @@ package Team10.RiotCrawler.controller;
 
 
 import Team10.RiotCrawler.domain.LeaguePosition;
+import Team10.RiotCrawler.domain.SummonerInfo;
 import Team10.RiotCrawler.service.RiotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -13,10 +15,11 @@ public class RiotController
     @Autowired
     RiotService riotService;
 
-    @GetMapping("/riot-crawler/leagueposition/{summonername}")
-    public LeaguePosition getLeaguePosition(String summonerName)
+    // LeaguePosition을 return
+    @GetMapping("/riot-crawler/leagueposition/{summonerName}")
+    public String getLeaguePosition(@PathVariable String summonerName)
     {
-        return riotService.getLeaguePositionBySummonerName(summonerName);
+        //return riotService.getLeaguePositionBySummonerName(summonerName); // LeaguePosition을 리턴
+        return riotService.getEncryptedSummonerId(summonerName); // 테스트로 encryptedId를 리턴.
     }
-
 }

@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
+
 import java.util.Iterator;
 import java.util.Set;
 
@@ -30,17 +31,12 @@ public class LeaguePositionRepository
 
     public void insertLeaguePosition(Set<LeaguePosition> leaguePositionSet)
     {
+
         LeaguePosition leaguePosition = new LeaguePosition();
         Iterator<LeaguePosition> iter = leaguePositionSet.iterator();
 
-        while(iter.hasNext()) {
-            leaguePosition = iter.next();
-        }
-        if(findLeaguePosition(leaguePosition.getSummonerId()) != null)
-            updateLeaguePosition(leaguePosition);
-        else {
-            mongoTemplate.insert(leaguePositionSet, LeaguePosition.class);
-        }
+        mongoTemplate.insert(leaguePositionSet, LeaguePosition.class);
+
     }
 
     public void updateLeaguePosition(LeaguePosition leaguePosition) {
